@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Gossip Project - Welcome</title>
+</head>
+<body>
+	<nav class="navbar navbar-light" style="background-color: #7C53B8;">
+		<a class="navbar-brand" href="/">Home</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		   <span class="navbar-toggler-icon"></span>
+		  </button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item">
+	        <a class="nav-link" href="<%=welcome_path %>">Bienvenue</a>
+	      </li>
+	      <li class="nav-item active">
+	        <a class="nav-link" href="<%=team_path %>">Equipe
+	          <span class="sr-only"></span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="<%=contact_path %>">Contact</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+	<h1>Welcome <%=@first_name%> !</h1>
+	<p>Ici c'est notre super site de potins, il est chouette, non ?</p>
+
+</body>
+</html>
