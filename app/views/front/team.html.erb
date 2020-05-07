@@ -13,24 +13,31 @@
 </head>
 <body>
 <header>
-		<nav class="navbar navbar-light" style="background-color: #7C53B8;">
-	  <!-- Navbar content -->
-		  <a class="navbar-brand" href="/">Home</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		    <div class="navbar-nav">
-		    	<ol>
-		    	<li><a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a></li>	
-			    <li><a class="nav-item nav-link" href="#">Features</a></li>  
-			    <li><a class="nav-item nav-link" href="#">Pricing</a></li>
-			    <li><a class="nav-item nav-link disabled" href="#">Disabled</a></li>
-		    	</ol>
-		    </div>
+	<nav class="navbar navbar-light" style="background-color: #7C53B8;">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  		<a class="navbar-brand" href="/">The Gossip Project</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  		</button>
+
+		  <!-- Navbar -->
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		    	<li class="nav-item">
+		        <a class="nav-link" href="<%=root_path %>">Home</a>
+		    	</li>
+		      	<li class="nav-item active">
+		        <a class="nav-link" href="#">Equipe
+		          <span class="sr-only"></span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="<%=contact_path %>">Contact</a>
+		      </li>
+		    </ul>
 		  </div>
 		</nav>
-	</header>
+	</nav>
+</header>
 	<h1>Qui sommes nous?</h1>
 	<h2>Voici notre equipe:</h2>
 	<p>Miguel...</p>

@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "user"
 require "city"
+require "gossip"
+require "tag"
+require "comment"
+require "privatemessage"
 require "faker"
 
 User.destroy_all
@@ -40,7 +44,7 @@ puts "10 users ont été créés"
 	Gossip.create!(
 		title: Faker::Movie.title,
 		content: Faker::Lorem.sentence, 
-		tag: Tag.all.simple
+		user: User.all.sample
 		)
 end
 puts "10 gossips ont été créés"
@@ -59,6 +63,13 @@ puts "10 tags ont été créés"
 end
 puts "10 tags ont été créés"
 
+30.times do
+    gossip_tag = GossipTag.create(
+        gossip: Gossip.all.sample,
+        tag: Tag.all.sample
+    )
+end
+
 10.times do
     private = PrivateMessage.new
     private.sender = User.all.sample
@@ -66,6 +77,9 @@ puts "10 tags ont été créés"
     private.content = Faker::ChuckNorris.fact
     private.save
 end
+
+puts "10 messages ont été créés"
+
 
 
 #manquent les commentaires et likes

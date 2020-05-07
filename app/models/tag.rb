@@ -1,5 +1,6 @@
 class Tag < ApplicationRecord
-	#belongs_to :gossip
 	has_many :gossips
-	#has_many :gossips, through: :gossip_tags
+	has_many :gossips, through: :gossip_tags
+
+	validates :title, length: {in: 3..14}
 end
