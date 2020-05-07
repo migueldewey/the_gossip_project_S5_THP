@@ -10,7 +10,7 @@ class GossipController < ApplicationController
                          user: User.find(params[:user]))
     	# @gossip = Gossip.new(params[:post])
 	    if @gossip.save # essaie de sauvegarder en base @gossip
-	    	redirect_to gossip_path # si ça marche, il redirige vers la page d'index du site
+	    	redirect_to gossip_index_path # si ça marche, il redirige vers la page d'index du site
 	  else
 	    	render 'new'# sinon, il render la view new (qui est celle sur laquelle on est déjà)
 	  end
@@ -40,6 +40,6 @@ class GossipController < ApplicationController
   # Delete a gossip
   def destroy
     Gossip.find(params[:id]).delete
-    redirect_to gossip_path
+    redirect_to gossip_index_path
   end
 end

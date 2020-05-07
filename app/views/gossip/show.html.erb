@@ -10,6 +10,7 @@
           <small class="text-muted">
             posté par <a href="<%= user_path(@gossip.user.id) %>"><%=@gossip.user.first_name %></a>
             le <%=@gossip.created_at.strftime("%d/%m/%Y à %H:%I") %>
+            à <%=@gossip.user.city.name %>
           </small>
         </p>
         <div class="row justify-content-center">
@@ -21,3 +22,5 @@
     </div>
   </div>
 </div>
+
+

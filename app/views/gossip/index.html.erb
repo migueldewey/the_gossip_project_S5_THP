@@ -9,6 +9,12 @@
 <!--    </ul>-->
 <!--  </div>-->
 <%# end %>
+<!-- Success message -->
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
 
 <!-- Main content -->
 <div class="row">
@@ -23,6 +29,7 @@
             <small class="text-muted">
               posté par <a href="<%= user_path(gossip.user.id) %>"><%=gossip.user.first_name %></a>
               le <%=gossip.created_at.strftime("%d/%m/%Y %H:%I") %>
+              à <%=gossip.user.city.name %>
             </small>
           </p>
           <div class="row justify-content-center">
