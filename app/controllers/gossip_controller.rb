@@ -26,14 +26,18 @@ class GossipController < ApplicationController
     @gossip = Gossip.find(params[:id])
   end
 
-
-  # Display a view with a form to edit an existing gossip
-  def edit
-
-  end
-
   # Edit an existing gossip
+  def edit
+    @gossip = Gossip.find(params[:id])
+  end
   def update
+  	@gossip = Gossip.find(params[:id])
+  if @gossip.update(title: params[:title], content: params[:content], user: User.find(params[:user]))
+	flash[:success] = "Le potin a été mis à jour avec succès."
+    redirect_to gossip_index_path
+  else
+    render 'edit'
+  end
 
   end
 

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   
+  
   #resources :gossip , only: [:new,:create] 
 	root 'gossip#index'
 
   resources :gossip
+  resources :cities, only: [:show ]
+	#get 'cities/:id', to: 'cities#show', as: 'city'
 
   get 'user/:id', to: 'front#user', as: 'user'
   get 'team', to: 'front#team'

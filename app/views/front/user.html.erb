@@ -1,11 +1,11 @@
 <div class="container">
   <h1 class="display-4 text-center">The Gossip Project</h1>
 
-  <p>id : <%= @user.id %></p>
-  <p>first name id : <%= @user.first_name %></p>
-  <p>last name : <%= @user.last_name %></p>
+  <p>N° Utilisateur : <%= @user.id %></p>
+  <p>Prénom : <%= @user.first_name %></p>
+  <p>Nom : <%= @user.last_name %></p>
   <p>description : <%= @user.description %></p>
   <p>email : <%= @user.email %></p>
-  <p>age : <%= @user.age %></p>
-  <p>city : <%= @user.city.name %></p>
+  <p>âge : <%= @user.age %></p>
+  <p>ville : <a href="<%=city_path(@user.city.id) %>"><%=@user.city.name %></a></p>
 </div>

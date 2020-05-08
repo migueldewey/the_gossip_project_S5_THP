@@ -1,25 +1,11 @@
-<!-- Display errors -->
-<%# if @gossip.errors.any? %>
-<!--  <div class="alert alert-success" role="alert">-->
-<!--    <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>-->
-<!--    <ul>-->
-<%# @gossip.errors.full_messages.each do |message| %>
-<!--        <li><%#= message %></li>-->
-<%# end %>
-<!--    </ul>-->
-<!--  </div>-->
-<%# end %>
-<!-- Success message -->
-<h1 class="text-center">Bienvenu(e) </h1>
-<% if flash[:success] %>
-  <div class="alert alert-success" role="alert">
-    <%= flash[:success] %>
-  </div>
-<% end %>
+<h1>Ville</h1>
+<p>Bienvenu sur le site de <%= @city.name %></p>
+
+<h2 class="h1 text-center mb-4 text-uppercase">Liste des potins à <%=@city.name %></h2>
 
 <!-- Main content -->
 <div class="row">
-  <% @gossips.each do |gossip| %>
+<% @gossips.each do |gossip| %>
     <div class="col-4 mb-3">
       <div class="card">
         <img class="card-img-top" alt="Card image cap" src="https://actu.meilleurmobile.com/wp-content/uploads/2015/06/gossip-application.jpg">
@@ -30,7 +16,7 @@
             <small class="text-muted">
               posté par <a href="<%= user_path(gossip.user.id) %>"><%=gossip.user.first_name %></a>
               le <%=gossip.created_at.strftime("%d/%m/%Y %H:%I") %>
-              à <a href="<%=city_path(gossip.user.city.id) %>"><%=gossip.user.city.name %></a>
+              à <a href="<%=city_path(gossip.user.city.id)%>"><%=@city.name %></a>
             </small>
           </p>
           <div class="row justify-content-center">
@@ -49,4 +35,5 @@
       </div>
     </div>
   <% end %>
-</div>
+ </div>
+<%#=render "layouts/gossips_list" %>

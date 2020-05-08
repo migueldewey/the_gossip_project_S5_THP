@@ -23,7 +23,7 @@ end
 #    @id = 1
 #    @author = "Titre du potin"
 #   @title = "Titre du potin"
-#   @content = "Who can develop the intuition and enlightenment of a scholar if he has the sincere peace of the doer?"
+#   @content = "content"
 # end
 
   # View a gossip

@@ -1,6 +1,5 @@
-<h1>Allons-y</h1>
-<p>Tape un nouveau potin</p>
-<h2 class="text-center my-5">Créer un nouveau potin</h2>
+<!-- Content title -->
+<h2 class="display-4 text-center my-3"></h2>
 
 <!-- Flash message -->
 <% if @gossip.errors.any? %>
@@ -16,7 +15,7 @@
 
 <div class="row justify-content-center">
   <div class="col-6">
-    <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <%= form_tag url_for(action: 'update'), method: "patch" do %>
       <div class="form-group">
         <%= label_tag 'Titre :' %>
         <%= text_field_tag 'title', @gossip.title, {class: 'form-control'} %>
@@ -30,7 +29,7 @@
         <%= select_tag "user", options_from_collection_for_select(User.all, :id, :full_name), {class: 'form-control' } %>
       </div>
       <div class="row justify-content-center">
-          <%= submit_tag "Créer le potin", {class: 'btn btn-primary'} %>
+          <%= submit_tag "Editer le potin", {class: 'btn btn-primary'} %>
       </div>
     <% end %>
   </div>
