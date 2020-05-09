@@ -29,5 +29,84 @@
     </div>
   </div>
 </div>
+ <!-- List Comments -->
+  <div class="col-7">
+    <h2 class="display-4 text-center my-3">Commentaires</h2>
+    <%if @gossip.comments.empty? %>
+      <p>Aucun commentaire</p>
+    <% else %>
+      <section class="comment-list" style="margin-top: -3em">
+        <% i = 0 %>
+        <% @comments.each do |comment| %>
+          <% if i % 2 === 0 %>
+            <!-- Right Comment -->
+            <article class="row">
+              <div class="col-md-2 col-sm-2 hidden-xs">
+                <figure class="thumbnail">
+                  <img class="img-responsive" src="<%= image_path 'bento_cowboy.png' %>"  alt=""/>
+                  <figcaption class="text-center"> <%=comment.user.full_name %></figcaption>
+                </figure>
+              </div>
+              <div class="col-md-10 col-sm-10">
+                <div class="panel panel-default arrow left">
+                  <div class="panel-body">
+                    <header class="text-left">
+                      <div class="comment-user"><i class="fa fa-user"></i> <%=comment.user.full_name %></div>
+                      <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%=comment.user.created_at.strftime("%d %b %Y à %H:%I") %></time>
+                    </header>
+                    <div class="comment-post">
+                      <p><%=comment.content %></p>
+                    </div>
+                    <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          <% else %>
+            <!-- Left Comment -->
+            <article class="row">
+              <div class="col-md-10 col-sm-10">
+                <div class="panel panel-default arrow right">
+                  <div class="panel-body">
+                    <header class="text-right">
+                      <div class="comment-user"><%=comment.user.full_name %> <i class="fa fa-user"></i></div>
+                      <time class="comment-date" datetime="16-12-2014 01:05"><%=comment.user.created_at.strftime("%d %b %Y à %H:%I") %> <i class="fa fa-clock-o"></i></time>
+                    </header>
+                    <div class="comment-post">
+                      <p><%=comment.content %></p>
+                    </div>
+                    <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 col-sm-2 hidden-xs">
+                <figure class="thumbnail">
+                  <img class="img-responsive" src="<%= image_path 'bento_pic.png' %>" />
+                  <figcaption class="text-center"><%=comment.user.full_name %></figcaption>
+                </figure>
+              </div>
+            </article>
+          <% end %>
+          <% i += 1 %>
+        <% end %>
+      </section>
+    <% end %>
+
+    <!-- Add a comment -->
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <%= form_tag url_for(action: 'create'), method: "post" do %>
+          <div class="form-group">
+            <%= label_tag 'Ajouter un commentaire :' %>
+            <%= text_area_tag 'content', @comment.content, {class: 'form-control', rows: 5, placeholder: "Saisissez votre commentaire..."} %>
+          </div>
+          <div class="row justify-content-center">
+            <%= submit_tag "Valider", {class: 'btn btn-primary'} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 

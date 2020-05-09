@@ -1,0 +1,31 @@
+<div class="row">
+<div class="row">
+  <% @gossips.each do |gossip| %>
+    <div class="col-4 mb-3">
+      <div class="card">
+        <div class="card-header">
+          <%= form_tag gossip_path(gossip.id), method: "delete", style: "display: inline" do %>
+            <button class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        <% end %>
+        </div>
+        <img class="card-img-top" alt="Card image cap" src="https://actu.meilleurmobile.com/wp-content/uploads/2015/06/gossip-application.jpg">
+        <div class="card-body text-center">
+          <h5 class="card-title"><%=gossip.title %></h5>
+          <p class="card-text"><%= truncate gossip.content, length: 30 %></p>
+          <a href="<%= gossip_path(gossip.id) %>" class="btn btn-info btn-block btn-sm">Voir le potin</a>
+        </div>
+        <div class="card-footer text-center">
+          <small class="text-muted">
+            <i class="fas fa-user"></i> Par <a href="<%= user_path(gossip.user.id) %>"><%=gossip.user.first_name %></a>
+            <i class="far fa-calendar-alt"> le </i> <%=gossip.created_at.strftime("%d/%m/%Y") %>
+            <i class="far fa-building"></i> à <a href="<%= city_path(gossip.user.city.id) %>"><%=gossip.user.city.name %></a>
+            <br />
+            <span class="text-muted"><%= gossip.comments.count %> commentaires</span>
+          </small>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

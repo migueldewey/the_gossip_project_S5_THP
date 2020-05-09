@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :gossip
   resources :cities, only: [:show ]
+  resources :comments
 	#get 'cities/:id', to: 'cities#show', as: 'city'
 
   get 'user/:id', to: 'front#user', as: 'user'
