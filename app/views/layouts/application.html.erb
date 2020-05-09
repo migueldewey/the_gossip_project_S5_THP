@@ -32,14 +32,13 @@
             <a class="nav-link" href="<%=contact_path %>">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%=new_gossip_path %>">Nouveau Gossip</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="<%=city_path(1) %>">Ville</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%=sign_in_path %>">Sign in</a>
-          </li>
+          <% if User.find_by(id: session[:user_id]) %>
+          <a class="btn btn-outline-success my-2 my-sm-0 text-success mx-3" href="<%=new_gossip_path %>">Nouveau Gossip</a><p class="lead text-center">Bienvenue à nouveau<%= User.find_by(id: session[:user_id]).first_name %> !</p>
+          <% else %>
+          <a class="btn btn-outline-light my-2 my-sm-0 mx-3" href="<%=new_session_path %>">Connexion</a>
+          <% end %>
           <li class="nav-item">
             <a class="nav-link" href="<%=new_user_path %>">Sign up</a>
           </li>

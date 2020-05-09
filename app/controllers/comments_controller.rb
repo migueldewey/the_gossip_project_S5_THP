@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
   # Display a view to create a comment
   def new
-    @comment = Comment.new(content: "", user: User.last)
+    @comment = Comment.new
   end
 
   # Create a new comment

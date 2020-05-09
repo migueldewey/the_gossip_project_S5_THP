@@ -1,6 +1,6 @@
 class GossipController < ApplicationController
   def new
-  	 @gossip = Gossip.new(title: "", content: "", user: User.last)
+  	 @gossip = Gossip.new
   end
 
   def create

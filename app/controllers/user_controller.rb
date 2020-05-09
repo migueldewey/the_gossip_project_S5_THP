@@ -4,14 +4,7 @@ class UserController < ApplicationController
   end
 
   def new
-  	@user =   User.new(
-        first_name: "",
-        last_name: "",
-        description: "",
-        email: "",
-        password: "",
-        age: "",
-        city: City.last)
+  	@user =   User.new
   end
 
   def create
