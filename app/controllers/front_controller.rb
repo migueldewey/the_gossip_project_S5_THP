@@ -13,9 +13,6 @@ class FrontController < ApplicationController
   	puts "$"*60
   end
 
-  def user
-    @user = User.find(params[:id])
-  end
 end
 
 #def gossips
