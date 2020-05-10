@@ -93,12 +93,13 @@
     <% end %>
 
     <!-- Add a comment -->
+    <%comment = Comment.new%>
     <div class="row justify-content-center">
       <div class="col-12">
         <%= form_tag url_for(action: 'create'), method: "post" do %>
           <div class="form-group">
             <%= label_tag 'Ajouter un commentaire :' %>
-            <%= text_area_tag 'content', @comment.content, {class: 'form-control', rows: 5, placeholder: "Saisissez votre commentaire..."} %>
+            <%= text_area_tag 'content', comment.content, {class: 'form-control', rows: 5, placeholder: "Saisissez votre commentaire..."} %>
           </div>
           <div class="row justify-content-center">
             <%= submit_tag "Valider", {class: 'btn btn-primary'} %>

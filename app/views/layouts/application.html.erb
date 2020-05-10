@@ -31,22 +31,38 @@
           <li class="nav-item">
             <a class="nav-link" href="<%=contact_path %>">Contact</a>
           </li>
+          <% if !current_user %>
+          <!-- Options pour se conecter -->
           <li class="nav-item">
-            <a class="nav-link" href="<%=city_path(1) %>">Ville</a>
+          <a class="btn btn-primary btn-sm" href="<%=new_session_path %>"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
           </li>
-          <% if User.find_by(id: session[:user_id]) %>
-          <a class="btn btn-outline-success my-2 my-sm-0 text-success mx-3" href="<%=new_gossip_path %>">Nouveau Gossip</a><p class="lead text-center">Bienvenue à nouveau<%= User.find_by(id: session[:user_id]).first_name %> !</p>
-          <% else %>
-          <a class="btn btn-outline-light my-2 my-sm-0 mx-3" href="<%=new_session_path %>">Connexion</a>
-          <% end %>
           <li class="nav-item">
-            <a class="nav-link" href="<%=new_user_path %>">Sign up</a>
+            <a class="nav-link" href="<%=new_user_path %>">Créer une compte</a>
+          </li>
+          </ul>
+        </div>
+      </nav>
+    </nav>
+  </header>
+          <%else%>
+          <!-- Si on a une connexion-->
+          
+          <li class="nav-item">
+            <a class="nav-link" href="<%=city_path(current_user.city.id) %>"><%=current_user.city.name %></a>
+          </li>
+          <li>
+          <a class="btn btn-outline-success my-2 my-sm-0 text-success mx-3" href="<%=new_gossip_path %>">Nouveau Gossip</a>
+        </li>
+          <li class="nav-item">
+            <%= link_to "Se déconnecter", session_path(session.id), method: :delete %>
           </li>
         </ul>
-      </div>
+        </div>
     </nav>
   </nav>
 </header>
+            <p class="lead text-center">Bienvenue à nouveau <%= User.find_by(id: session[:user_id]).first_name %> !</p>
+          <% end %>
     <%= yield %>
   </body>
 </html>

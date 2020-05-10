@@ -4,7 +4,7 @@ class UserController < ApplicationController
   end
 
   def new
-  	@user =   User.new
+  	@user = User.new
   end
 
   def create
@@ -15,10 +15,10 @@ class UserController < ApplicationController
         email: params[:email],
         age: params[:age],
         city: City.find(params[:city]),
-        password: params[:password] #password bcrypt
+        password: params[:password], #password bcrypt
+        password_confirmation: params[:password_confirmation]
     )
-    password_confirmation = Bcrypt::Password.new(params[:password_confirmation])
-    if user.save && password == password_confirmation
+     if user.save && password == password_confirmation
       flash[:success] = "Votre compte a bien été créé !"
       redirect_to root_path
     else
@@ -27,6 +27,6 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 end
